@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "type": "multiple",
+    "text": "Which Pokemon did you not encounter on your journey?",
+    "key": "pokemon"
+  },
+  {
+    "id": 2,
+    "type": "multiple",
+    "text": "Which Pokemon did encounter on your journey?",
+    "key": "pokemon"
+  }
+]
