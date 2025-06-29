@@ -10,17 +10,18 @@ if PokemonData and PokemonData.Pokemon then
     PokemonNames[idx] = entry.name
   end
 end
+local dexSize = 386
 
 local function QuizExtension()
   --------------------------------
   -- 1) Metadata
   --------------------------------
   local self = {}
-  self.version        = "1.0"
+  self.version        = "1.02"
   self.name           = "Quiz Extension"
   self.author         = "Poc"
   self.description    = "Displays a multiple-choice quiz after a run ends."
-  self.github         = "YourUsername/QuizExtension"
+  self.github         = "JannickHansen/QuizExtension"
   self.url            = string.format("https://github.com/%s", self.github)
 
   --------------------------------
@@ -187,7 +188,7 @@ local function QuizExtension()
     if #seenIDs == 0 then
       print("[QuizExtension] No seen Pokémon – using fallback options")
       local full = {}
-      for i = 1, 151 do
+      for i = 1, dexSize do
         table.insert(full, i)
       end
       local pool = pickMany(full, 4)
@@ -212,7 +213,7 @@ local function QuizExtension()
     end
 
     local unseen = {}
-    for id = 1, 151 do
+    for id = 1, dexSize do
       if not seenSet[id] then
         table.insert(unseen, id)
       end
@@ -246,7 +247,7 @@ local function QuizExtension()
     end
 
     while #pool < 4 do
-      local cand = math.random(1, 151)
+      local cand = math.random(1, dexSize)
       if not used[cand] then
         used[cand] = true
         table.insert(pool, cand)
